@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState(''); const navigate = useNavigate();
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();

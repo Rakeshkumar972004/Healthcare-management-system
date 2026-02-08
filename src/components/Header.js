@@ -1,18 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-    return (
-        <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
-            <h1 className="text-lg font-bold">MediConnect</h1> <nav className="space-x-4">
-                <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-                <Link to="/department" className="hover:underline">Department</Link>
-                <Link to="/add-medicine" className="hover:underline">AddMedicine</Link>
-                <Link to="/medicines" className="hover:underline">MedicineList</Link>
-                <Link to="/reminder" className="hover:underline">Reminder</Link>
-                <Link to="/history" className="hover:underline">History</Link>
-                <Link to="/contact" className="hover:underline">Contact Us</Link>
-                <Link to="/profile" className="hover:underline">Profile</Link> </nav> </header>);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <header className="header">
+        <h1 className="logo">Healthcare</h1>
+
+        {/* Desktop Nav */}
+        <nav className="nav-desktop">
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/department">Department</Link>
+          <Link to="/add-medicine">Add Medicine</Link>
+          <Link to="/medicines">Medicines</Link>
+          <Link to="/reminder">Reminder</Link>
+          <Link to="/history">History</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/profile">Profile</Link>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="menu-btn"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
+          ☰
+        </button>
+      </header>
+
+      {/* Mobile / Tablet Menu */}
+      {open && (
+        <div className="menu-panel">
+          <Link to="/dashboard" onClick={() => setOpen(false)}>Dashboard</Link>
+          <Link to="/department" onClick={() => setOpen(false)}>Department</Link>
+          <Link to="/add-medicine" onClick={() => setOpen(false)}>Add Medicine</Link>
+          <Link to="/medicines" onClick={() => setOpen(false)}>Medicines</Link>
+          <Link to="/reminder" onClick={() => setOpen(false)}>Reminder</Link>
+          <Link to="/history" onClick={() => setOpen(false)}>History</Link>
+          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
+          <Link to="/profile" onClick={() => setOpen(false)}>Profile</Link>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Header;

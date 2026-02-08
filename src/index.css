@@ -1,4 +1,12 @@
-@import "tailwindcss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -7,9 +15,33 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  color: #1e293b;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #0369a1;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+a {
+  color: #0369a1;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #0284c7;
 } 
